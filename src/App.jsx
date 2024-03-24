@@ -1,12 +1,13 @@
 import { useState } from 'react'
 import './App.css'
+import Barra from './Barra.jsx'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
-      <h1>Venda Valorizada</h1>
+      <Barra></Barra>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
