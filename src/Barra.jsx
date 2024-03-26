@@ -3,9 +3,11 @@ import './App.css'
 function app() {
     return (
         <>
-        <div>
+        <hgroup>
         <h1>Venda Valorizada</h1>
-        </div>
+        <p>O aplicativo para facilitar seus calculos!</p>
+        </hgroup>
+        <p>Como utilizar: apos login, cadastre o produto, seus custos e ao final adicione a margem de lucro!</p>
         </>
     )
 }
