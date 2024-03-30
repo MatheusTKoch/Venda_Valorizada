@@ -8,7 +8,7 @@ function App() {
       <Barra></Barra>
       <div className="card">
         <div>
-          <label htmlFor="user">Usuário: </label>
+          <label htmlFor="email">Email: </label>
           <input type="text" id="user"></input>
           <p></p>
           <label htmlFor="user">Senha: </label>
