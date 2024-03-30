@@ -2,12 +2,21 @@
 const express = require('express');
 const path = require('path');
 const mongodb = require('mongodb')
-
-mongodb.connect(process.env.DATABASE_URL);
-
 const app = express();
-const PORT = process.env.PORT || 5000; 
+const PORT = process.env.PORT || 5000;
+const url = process.env.DATABASE_URL 
 app.use(mongodb)
+
+const MongoClient = mongodb.MongoClient
+const dbName = 'vendaValorizada'
+
+MongoClient.connect(url, { useNewUrlParser: true, useUnifiedTopology: true }, (err) => {
+  if (err) {
+    console.error('Failed to connect to the database:', err);
+    return;
+  }
+  console.log('Connected successfully to the database')
+});
 
 app.use(express.static(path.join(__dirname, 'dist')));
 
@@ -21,4 +30,4 @@ app.get('*', (req, res) => {
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
-});
+})

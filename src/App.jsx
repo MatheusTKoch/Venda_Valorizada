@@ -7,13 +7,22 @@ function App() {
     <>
       <Barra></Barra>
       <div className="card">
-        <button>
-          Login
-        </button>
+        <div>
+          <label htmlFor="user">Usuário: </label>
+          <input type="text" id="user"></input>
+          <p></p>
+          <label htmlFor="user">Senha: </label>
+          <input type="password" id="user"></input>
+        </div>
         <p></p>
-        <button>
-          Criar Conta
-        </button>
+        <div>
+          <button>
+            Login
+          </button>
+          <button>
+            Criar Conta
+          </button>
+        </div>
       </div>
     </>
   )
