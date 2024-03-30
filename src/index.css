@@ -35,18 +35,21 @@ body {
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+  color: #fb0464;
 }
 
 button {
-  border-radius: 6px;
+  border-radius: 8px;
   border: 0.7px black transparent;
   padding: 0.6em 1.2em;
   font-size: 1.05em;
-  font-weight: 300;
+  font-weight: 400;
+  height: fit-content;
   font-family: inherit;
   background-color: #1d1c1c;
   cursor: pointer;
   transition: border-color 0.25s;
+  color: #fb0464;
 }
 button:hover {
   border-color: #FF0763ff;
@@ -57,13 +60,18 @@ button:focus-visible {
 }
 
 input {
-  background-color: white;
+  background-color: #b4b7b9;
+  height: auto;
+  border-radius: 8px;
 }
 
 @media (prefers-color-scheme: light) {
   :root {
     color: #b4b7b9;
     background-color: #E0E5E8ff;
+  }
+  input:focus-visible {
+    border-color: #FF0763ff;
   }
   a:hover {
     color: #FF0763ff;

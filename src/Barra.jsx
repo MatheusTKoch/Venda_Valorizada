@@ -3,6 +3,8 @@ import './App.css'
 function app() {
     return (
         <>
+        <img alt="logo" src="/src/assets/logo.png">
+        </img>
         <hgroup>
         <h1>Venda Valorizada</h1>
         <h2>O aplicativo para facilitar seus calculos!</h2>
