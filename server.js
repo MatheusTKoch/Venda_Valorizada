@@ -1,9 +1,13 @@
 /* eslint-disable no-undef */
 const express = require('express');
 const path = require('path');
+const mongodb = require('mongodb')
+
+mongodb.connect(process.env.DATABASE_URL);
 
 const app = express();
 const PORT = process.env.PORT || 5000; 
+app.use(mongodb)
 
 app.use(express.static(path.join(__dirname, 'dist')));
 
