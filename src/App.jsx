@@ -4,7 +4,6 @@ import { useState } from 'react';
 
 function App() {
     const [formData, setFormData] = useState({
-      username: '',
       email: '',
       password: ''
     });
