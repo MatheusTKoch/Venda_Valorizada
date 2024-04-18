@@ -7,8 +7,8 @@ const PORT = process.env.PORT || 5000;
 const url = process.env.DATABASE_URL 
 app.use(mongodb)
 
-const MongoClient = mongodb.MongoClient
-const dbName = 'vendaValorizada'
+const MongoClient = mongodb.MongoClient;
+const dbName = 'vendaValorizada';
 
 MongoClient.connect(url, { useNewUrlParser: true, useUnifiedTopology: true }, (err) => {
   if (err) {

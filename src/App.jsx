@@ -9,7 +9,7 @@ function App() {
     });
   
   const handleChange = e => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    setFormData({ ...formData, [e.target.id]: e.target.value });
   };
 
   const handleRegister = async e => {
@@ -36,10 +36,10 @@ function App() {
         <form onSubmit={handleRegister}>
         <div>
           <label htmlFor="email">Email: </label>
-          <input type="text" id="email" value={formData.email} onChange={handleChange}></input>
+          <input type="text" id="email" name="email" value={formData.email} onChange={handleChange}></input>
           <p></p>
           <label htmlFor="password">Senha: </label>
-          <input type="password" id="password" value={formData.password} onChange={handleChange}></input>
+          <input type="password" id="password" name="password" value={formData.password} onChange={handleChange}></input>
         </div>
         <p></p>
         <div>
