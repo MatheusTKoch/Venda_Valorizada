@@ -12,6 +12,7 @@ function App() {
     setFormData({ ...formData, [e.target.id]: e.target.value });
   };
 
+
   const handleRegister = async e => {
     e.preventDefault();
     try {
@@ -29,11 +30,28 @@ function App() {
     }
   };
 
+  const handleLogin = async e => {
+    e.preventDefault();
+    try {
+      const response = await fetch('http://localhost:5173/api/users/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      });
+      const data = await response.json();
+      console.log(data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <>
       <Barra></Barra>
       <div className="card">
-        <form onSubmit={handleRegister}>
+        <form>
         <div>
           <label htmlFor="email">Email: </label>
           <input type="text" id="email" name="email" value={formData.email} onChange={handleChange}></input>
@@ -43,10 +61,10 @@ function App() {
         </div>
         <p></p>
         <div>
-          <button>
+          <button type="submit" onClick={handleLogin}>
             Login
           </button>
-          <button type="submit">
+          <button type="submit" onClick={handleRegister}>
             Criar Conta
           </button>
         </div>
