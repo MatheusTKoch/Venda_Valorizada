@@ -19,7 +19,9 @@ img {
   top: 0; 
   left: 0; 
   right: 0;
-  background-color: black;
+  background-color:#143447ff;
+  border-bottom-width: 2px;
+  border-bottom: black;
 }
 
 
