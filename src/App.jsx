@@ -1,5 +1,5 @@
 import './App.css'
-import Barra from './Barra.jsx'
+import Barra from './Form.jsx'
 import { useState } from 'react';
 
 function App() {
