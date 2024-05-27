@@ -1,4 +1,4 @@
-import './App.css';
+import './TopHeader.css';
 
 function app() {
     return (
@@ -6,7 +6,7 @@ function app() {
         <div className='topHeader'>
             <div className="row">
                 <img alt="logo" src="/src/assets/logo.png">
-                </img>
+                </img> 
             </div>
         </div>
         </>

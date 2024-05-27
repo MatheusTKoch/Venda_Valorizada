@@ -5,23 +5,4 @@
   text-align: center;
 }
 
-img {
-  width: 100px;
-  height: 100px;
-  position: absolute;
-  left:0;
-  top:0;
-}
-
-.topHeader {
-  display: flex;
-  position: fixed;
-  top: 0; 
-  left: 0; 
-  right: 0;
-  background-color:#143447ff;
-  border-bottom-width: 2px;
-  border-bottom: black;
-}
-
 
