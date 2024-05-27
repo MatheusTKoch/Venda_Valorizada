@@ -1,13 +1,13 @@
 import './App.css';
 import Form from './Form.jsx';
-import Barra from './Barra.jsx';
+import TopHeader from './TopHeader.jsx';
 
 
 function App() {
 
   return (
     <>
-      <Barra></Barra>
+      <TopHeader></TopHeader>
       <Form></Form>
     </>
   )

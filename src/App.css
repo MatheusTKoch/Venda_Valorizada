@@ -13,7 +13,7 @@ img {
   top:0;
 }
 
-.rodapeSuperior {
+.topHeader {
   display: flex;
   position: fixed;
   top: 0; 

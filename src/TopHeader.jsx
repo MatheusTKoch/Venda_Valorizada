@@ -3,7 +3,7 @@ import './App.css';
 function app() {
     return (
         <>
-        <div className='rodapeSuperior'>
+        <div className='topHeader'>
             <div className="row">
                 <img alt="logo" src="/src/assets/logo.png">
                 </img>
