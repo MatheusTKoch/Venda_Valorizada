@@ -1,5 +1,6 @@
-import './App.css'
-import Barra from './Form.jsx'
+import './App.css';
+import Form from './Form.jsx';
+import Barra from './Barra.jsx';
 import { useState } from 'react';
 
 function App() {
@@ -50,6 +51,7 @@ function App() {
   return (
     <>
       <Barra></Barra>
+      <Form></Form>
       <div className="card">
         <form>
         <div>
