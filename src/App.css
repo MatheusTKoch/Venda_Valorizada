@@ -18,5 +18,13 @@
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
+img {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  left:0;
+  top:0;
+}
+
 
 
