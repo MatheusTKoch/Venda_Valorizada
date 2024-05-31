@@ -50,9 +50,9 @@ function App() {
         <>
         <hgroup>
         <h1>Venda Valorizada</h1>
-        <h2>O aplicativo para facilitar seus calculos!</h2>
+        <h2>O aplicativo para facilitar seus cálculos!</h2>
         </hgroup>
-        <p>Como utilizar: apos login, cadastre o produto, seus custos e ao final adicione a margem de lucro!</p>
+        <p>Como utilizar: após login, cadastre o produto, seus custos e ao final adicione a margem de lucro!</p>
         <div className="card">
         <form>
         <div>
