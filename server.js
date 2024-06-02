@@ -1,14 +1,16 @@
 /* eslint-disable no-undef */
 const express = require('express');
 const path = require('path');
-const mongodb = require('mongodb')
+const mongoose = require('mongoose')
+const cors = require('cors');
 const app = express();
 const PORT = process.env.PORT || 5000;
-const url = process.env.DATABASE_URL 
-app.use(mongodb)
+const url = process.env.DATABASE_URL;
+
+app.use(cors);
+app.use(express.json());
 
 const MongoClient = mongodb.MongoClient;
-//const dbName = 'vendaValorizada';
 
 const loginSchema = new mongoose.Schema({
   email: {
