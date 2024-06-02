@@ -1,39 +1,18 @@
 /* eslint-disable no-undef */
+require('dotenv').config();
 const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose')
 const cors = require('cors');
 const app = express();
 const PORT = process.env.PORT || 5000;
-const url = process.env.DATABASE_URL;
 
 app.use(cors);
 app.use(express.json());
 
-const MongoClient = mongodb.MongoClient;
+mongoose.connect(process.env.DATABASE_URL);
 
-const loginSchema = new mongoose.Schema({
-  email: {
-    type: String,
-    required: true
-  },
-  senha: {
-    type: String,
-    require: true
-  }
-});
-
-const loginModel = mongoose.model('login', loginSchema);
-
-MongoClient.connect(url, { useNewUrlParser: true, useUnifiedTopology: true }, (err) => {
-  if (err) {
-    console.error('Failed to connect to the database:', err);
-    return;
-  }
-  console.log('Connected successfully to the database')
-});
-
-app.use(express.static(path.join(__dirname, 'dist')));
+app.use(express.static(path.join(__dirname, '/index.html')));
 
 app.route('/')
 .get(function(req, res) {
