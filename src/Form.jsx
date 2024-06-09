@@ -15,7 +15,7 @@ function App() {
     const handleRegister = async e => {
       e.preventDefault();
       try {
-        const response = await fetch('http://localhost:5173/api/users/register', {
+        const response = await fetch('http://localhost:5000/api/users/register', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -32,17 +32,24 @@ function App() {
     const handleLogin = async e => {
       e.preventDefault();
       try {
-        const response = await fetch('http://localhost:5173/api/users/login', {
+        const response = await fetch('http://localhost:5000/api/users/login', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
           },
           body: JSON.stringify(formData)
         });
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
         const data = await response.json();
         console.log(data);
+        if (data.token) {
+          localStorage.setItem('token', data.token);
+          window.location.href = '/dashboard';
+        }
       } catch (error) {
-        console.error(error);
+        console.error('There was a problem with the fetch operation:', error);
       }
     };
 
