@@ -3,13 +3,12 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const usuarioSchema = new Schema ({
-    email: {type: String, required: true},
+    email: {type: String, required: true, unique: true},
     senha: {type: String, required: true},
 }, {
     timestamps: true,
 });
 
-const usuario = mongoose.model('Usuario', usuarioSchema);
+const Usuario = mongoose.model('Usuario', usuarioSchema);
 
-// eslint-disable-next-line no-undef
-module.exports = usuario;
+module.exports = Usuario;
