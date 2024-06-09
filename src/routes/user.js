@@ -1,19 +1,66 @@
-const router = require('express').Router();
-let usuario = require('../models/login.model');
+/* eslint-disable no-undef */
+const express = require('express');
+const router = express.Router();
+const Usuario = require('../models/login.model');
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 
-app.route('/')
-.get(function(req, res) {
-  res.json('teste');
-})
-.post(function(req, res) {
-  const { email, senha } = req.body;
-  const newLogin = new usuarioModel({ email, senha });
+router.post('/signup', async (req, res) => {
+    const { email, senha } = req.body;
 
-  newLogin.save((err, savedUser) => {
-    if (err) {
-      console.error("Error creating user:", err);
-      return res.status(400).json({ error: "Could not create user" });
+    try {
+        const hashedPassword = await bcrypt.hash(senha, 10);
+        const newUser = new Usuario({ email, senha: hashedPassword });
+
+        await newUser.save();
+        res.status(201).json({ message: 'User created successfully' });
+    } catch (error) {
+        console.error("Error creating user:", error);
+        res.status(400).json({ error: "Could not create user" });
     }
-    res.json({ email: savedUser.email, senha: savedUser.senha });
-  });
 });
+
+router.post('/login', async (req, res) => {
+    const { email, senha } = req.body;
+
+    try {
+        const user = await Usuario.findOne({ email });
+        if (!user) {
+            return res.status(401).json({ error: "Invalid email or password" });
+        }
+
+        const isPasswordValid = await bcrypt.compare(senha, user.senha);
+        if (!isPasswordValid) {
+            return res.status(401).json({ error: "Invalid email or password" });
+        }
+
+        const token = jwt.sign({ id: user._id }, 'your_jwt_secret_key', { expiresIn: '1h' });
+        res.json({ message: 'Login successful', token });
+    } catch (error) {
+        console.error("Error logging in user:", error);
+        res.status(400).json({ error: "Could not login user" });
+    }
+});
+
+export default router;
+
+
+// const router = require('express').Router();
+// let usuario = require('../models/login.model');
+
+// app.route('/')
+// .get(function(req, res) {
+//   res.json('teste');
+// })
+// .post(function(req, res) {
+//   const { email, senha } = req.body;
+//   const newLogin = new usuarioModel({ email, senha });
+
+//   newLogin.save((err, savedUser) => {
+//     if (err) {
+//       console.error("Error creating user:", err);
+//       return res.status(400).json({ error: "Could not create user" });
+//     }
+//     res.json({ email: savedUser.email, senha: savedUser.senha });
+//   });
+// });
