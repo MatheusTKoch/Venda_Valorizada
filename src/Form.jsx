@@ -4,7 +4,7 @@ import { useState } from 'react';
 function App() {
     const [formData, setFormData] = useState({
         email: '',
-        password: ''
+        senha: ''
       });
     
     const handleChange = e => {
@@ -66,8 +66,8 @@ function App() {
           <label htmlFor="email">Email: </label>
           <input type="text" id="email" name="email" value={formData.email} onChange={handleChange}></input>
           <p></p>
-          <label htmlFor="password">Senha: </label>
-          <input type="password" id="password" name="password" value={formData.password} onChange={handleChange}></input>
+          <label htmlFor="senha">Senha: </label>
+          <input type="password" id="senha" name="senha" value={formData.senha} onChange={handleChange}></input>
         </div>
         <p></p>
         <div>
