@@ -4,7 +4,6 @@ const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
 const cors = require('cors');
-//const bodyParser = require('body-parser');
 const userRoutes = require('./src/routes/user.js');
 
 const app = express();
@@ -12,7 +11,6 @@ const PORT = process.env.PORT || 5000;
 
 app.use(cors());
 app.use(express.json());
-//app.use(bodyParser.json());
 
 app.use('/api/users', userRoutes);
 
