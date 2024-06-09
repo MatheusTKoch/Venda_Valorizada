@@ -8,11 +8,25 @@ const jwt = require('jsonwebtoken');
 router.post('/register', async (req, res) => {
     const { email, senha } = req.body;
 
-    try {
-        const hashedPassword = await bcrypt.hash(senha, 10);
-        const newUser = new Usuario({ email, senha: hashedPassword });
+    console.log("Informacoes de login: ", {email, senha});
 
+    try {
+        if (!email || !senha) {
+            console.log("Faltando email e senha");
+            return res.status(400).json({ error: 'Email e senha sao obrigatorios' });
+        }
+
+        if (typeof senha !== 'string' || senha.trim() === '') {
+            console.log("Senha incorreta");
+            return res.status(400).json({ error: 'Senha incorreta' });
+        }
+
+        const hashedPassword = await bcrypt.hash(senha, 10);
+        console.log("Hashed password:", hashedPassword);
+
+        const newUser = new Usuario({ email, senha: hashedPassword });
         await newUser.save();
+        
         res.status(201).json({ message: 'User created successfully' });
     } catch (error) {
         console.error("Error creating user:", error);
