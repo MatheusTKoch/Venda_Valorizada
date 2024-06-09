@@ -15,9 +15,7 @@ app.use(bodyParser.json());
 
 app.use('/api/users', userRoutes);
 
-mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true })
-    .then(() => console.log('MongoDB connected'))
-    .catch(err => console.log(err));
+mongoose.connect(process.env.DATABASE_URL);
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'dist', 'index.html'));
