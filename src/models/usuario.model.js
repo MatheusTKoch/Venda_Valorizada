@@ -1,11 +1,12 @@
-const Sequelize, DataTypes  = require('sequelize');
+/* eslint-disable no-undef */
+const DataTypes  = require('sequelize');
 const sequelize = require('../config/database.js');
 
 const Usuario = sequelize.define('Usuario', {
     email: {
         type: DataTypes.STRING,
         allowNull: false,
-        unique: false
+        unique: true
     },
     senha: {
         type: DataTypes.STRING,
