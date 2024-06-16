@@ -10,7 +10,7 @@ router.post('/register', async (req, res) => {
 
     try {
         if (!email || !senha) {
-            return res.status(400).json({ error: 'Email e senha sao obrigatorios' });
+            return res.status(400).json({ error: 'Email e senha são obrigatórios' });
         }
 
         if (typeof senha !== 'string' || senha.trim() === '') {
@@ -33,7 +33,7 @@ router.post('/login', async (req, res) => {
     const { email, senha } = req.body;
 
     try {
-        const user = await Usuario.findOne({ email });
+        const user = await Usuario.findOne({ where: { email } });
         if (!user) {
             return res.status(401).json({ error: "Invalid email or password" });
         }
