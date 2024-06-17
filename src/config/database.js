@@ -7,4 +7,4 @@ const sequelize = new Sequelize(process.env.MARIADB_DATABASE, process.env.MARIAD
     dialect: 'mariadb'
 });
 
-export default sequelize;
+module.exports = sequelize;

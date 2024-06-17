@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 const express = require('express');
 const router = express.Router();
-const Usuario = require('../models/login.model');
+const Usuario = require('../models/usuario.model.js');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
@@ -51,5 +51,5 @@ router.post('/login', async (req, res) => {
     }
 });
 
-export default router;
+module.exports = router;
 
