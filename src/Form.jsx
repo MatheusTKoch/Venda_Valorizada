@@ -1,7 +1,10 @@
-import './App.css'
+/* eslint-disable no-undef */
+import './App.css';
 import { useState } from 'react';
 
 function App() {
+    const PORT = import.meta.env.PORT;
+
     const [formData, setFormData] = useState({
         email: '',
         senha: ''
@@ -15,7 +18,7 @@ function App() {
     const handleRegister = async e => {
       e.preventDefault();
       try {
-        const response = await fetch('http://localhost:5000/api/users/register', {
+        const response = await fetch(`http://localhost:${PORT}/api/users/register`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -32,7 +35,7 @@ function App() {
     const handleLogin = async e => {
       e.preventDefault();
       try {
-        const response = await fetch('http://localhost:5000/api/users/login', {
+        const response = await fetch(`http://localhost:${PORT}/api/users/login`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
