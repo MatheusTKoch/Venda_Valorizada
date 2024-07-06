@@ -4,11 +4,6 @@ import path from 'path';
 import cors from 'cors';
 import sequelize from './src/config/database.js';
 import userRoutes from './src/routes/user.js';
-//const express = require('express');
-//const path = require('path');
-// const cors = require('cors');
-// const sequelize = require('./src/config/database.js');
-// const userRoutes = require('./src/routes/user.js');
 
 const app = express();
 const PORT = import.meta.PORT;

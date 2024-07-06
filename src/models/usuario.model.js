@@ -1,6 +1,8 @@
 /* eslint-disable no-undef */
-const DataTypes  = require('sequelize');
-const sequelize = require('../config/database.js');
+import { DataTypes } from "sequelize";
+import sequelize from "../config/database.js";
+// const DataTypes  = require('sequelize');
+// const sequelize = require('../config/database.js');
 
 const Usuario = sequelize.define('Usuario', {
     email: {
