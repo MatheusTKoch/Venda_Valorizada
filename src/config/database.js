@@ -1,9 +1,10 @@
 /* eslint-disable no-undef */
-require('dotenv').config();
-const Sequelize = require('sequelize');
+import { Sequelize } from "sequelize";
+// require('dotenv').config();
+// const Sequelize = require('sequelize');
 
-const sequelize = new Sequelize(process.env.MARIADB_DATABASE, process.env.MARIADB_USER, process.env.MARIADB_PASSWORD, {
-    host: process.env.MARIADB_HOST,
+const sequelize = new Sequelize(import.meta.MARIADB_DATABASE, import.meta.MARIADB_USER, import.meta.MARIADB_PASSWORD, {
+    host: import.meta.MARIADB_HOST,
     dialect: 'mariadb'
 });
 
